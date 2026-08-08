@@ -43,9 +43,8 @@ export default function App() {
   // Reduce images in Today section (Act 4) to 8 images
   const act4Images = current.slice(0, 8);
   
-  // Pass the remaining Today images + 4 random childhood images as chibis to Epilogue
+  // Pass the remaining Today images to Epilogue
   const epilogueCutouts = current.slice(8);
-  const epilogueChibis = childhood.slice(0, 4);
 
   return (
     <SmoothScroll>
@@ -55,8 +54,8 @@ export default function App() {
       <Act4_ThePresent images={act4Images} />
       <Act5_Constellation images={allImages} />
       <Act6_Celebration images={allImages} />
-      {(epilogueCutouts.length > 0 || epilogueChibis.length > 0) && (
-        <Act7_Epilogue cutouts={epilogueCutouts} chibis={epilogueChibis} />
+      {epilogueCutouts.length > 0 && (
+        <Act7_Epilogue cutouts={epilogueCutouts} />
       )}
     </SmoothScroll>
   );
