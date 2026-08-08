@@ -41,25 +41,10 @@ export default function Act6_Celebration({ images }: Props) {
       ease: 'power2.out'
     }, '+=0.5');
 
-    // Fade out text to reveal montage
-    tl.to('.hbd-container', {
-      opacity: 0,
-      scale: 1.1,
-      duration: 1,
-      ease: 'power2.inOut'
-    }, '+=1');
-
-    // Reveal montage
-    tl.to('.montage-container', {
-      opacity: 1,
-      duration: 1,
-    });
+    // Remove the text fade out and montage so it transitions cleanly to Act 7
+    // The text will just remain on screen
 
   }, { scope: containerRef });
-
-  const handleRelive = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <section ref={containerRef} className="w-full h-[100svh] bg-[#0A0A0A] relative z-50 flex items-center justify-center overflow-hidden">
@@ -101,43 +86,6 @@ export default function Act6_Celebration({ images }: Props) {
           </p>
         </div>
       </div>
-
-      {/* Cinematic Montage (Revealed at the end) */}
-      <div className="montage-container absolute inset-0 z-30 opacity-0 pointer-events-none flex flex-col items-center justify-center bg-[#0A0A0A]">
-        <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
-          {images.map((img, i) => (
-            <img 
-              key={i}
-              src={img.src}
-              alt={`Montage ${i}`}
-              className="absolute max-w-[80vw] max-h-[70vh] object-contain opacity-0"
-              style={{
-                animation: `fade-montage 1.5s ease-in-out forwards ${i * 1.5}s`,
-              }}
-            />
-          ))}
-        </div>
-        
-        <button 
-          onClick={handleRelive}
-          className="absolute bottom-12 px-6 py-3 border border-[#C8A96B] text-[#C8A96B] font-mono text-xs tracking-widest uppercase hover:bg-[#C8A96B] hover:text-[#0A0A0A] transition-colors pointer-events-auto"
-          style={{ animation: `fade-in 1s ease-in forwards ${(images.length * 1.5) + 1}s`, opacity: 0 }}
-        >
-          REPLAY THE EXHIBITION
-        </button>
-      </div>
-
-      <style>{`
-        @keyframes fade-montage {
-          0% { opacity: 0; transform: scale(0.95); }
-          20% { opacity: 1; transform: scale(1); }
-          80% { opacity: 1; transform: scale(1.05); }
-          100% { opacity: 0; transform: scale(1.1); }
-        }
-        @keyframes fade-in {
-          to { opacity: 1; }
-        }
-      `}</style>
 
     </section>
   );

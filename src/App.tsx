@@ -8,6 +8,7 @@ import Act3_StructuralSupport from './sections/Act3_StructuralSupport';
 import Act4_ThePresent from './sections/Act4_ThePresent';
 import Act5_Constellation from './sections/Act5_Constellation';
 import Act6_Celebration from './sections/Act6_Celebration';
+import Act7_Epilogue from './sections/Act7_Epilogue';
 
 import { useDynamicImages } from './hooks/useDynamicImages';
 
@@ -39,14 +40,24 @@ export default function App() {
     );
   }
 
+  // Reduce images in Today section (Act 4) to 8 images
+  const act4Images = current.slice(0, 8);
+  
+  // Pass the remaining Today images + 4 random childhood images as chibis to Epilogue
+  const epilogueCutouts = current.slice(8);
+  const epilogueChibis = childhood.slice(0, 4);
+
   return (
     <SmoothScroll>
       <Act1_Blueprint />
       <Act2_Foundation images={childhood} />
       <Act3_StructuralSupport images={family} />
-      <Act4_ThePresent images={current} />
+      <Act4_ThePresent images={act4Images} />
       <Act5_Constellation images={allImages} />
       <Act6_Celebration images={allImages} />
+      {(epilogueCutouts.length > 0 || epilogueChibis.length > 0) && (
+        <Act7_Epilogue cutouts={epilogueCutouts} chibis={epilogueChibis} />
+      )}
     </SmoothScroll>
   );
 }
