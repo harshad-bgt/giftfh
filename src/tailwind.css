@@ -1,0 +1,78 @@
+/* src/tailwind.css */
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #0A0A0A;
+  --color-concrete: #1A1A1A;
+  --color-offwhite: #F5F5F5;
+  --color-gold: #C8A96B;
+  --color-blueprint: #1D3557;
+
+  --font-serif: "Playfair Display", "Cormorant Garamond", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "Space Grotesk", monospace;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: var(--color-dark);
+  color: var(--color-offwhite);
+  font-family: var(--font-sans);
+  overscroll-behavior: none;
+}
+
+/* Base64 Noise Overlay for Cinematic Texture */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAIAAAACAAICAAAAAgIAAgAAAAIDAJmMBAAAAwklEQVR42mMQYGBgYWBgYGJggIA2IGaE8BmBfCYGCE9ZkYGBVQUowwSRY1RhYNCFYkYgD4jB2IwIeSC2MgMDqwpYnQnIZ4bImSMwG0SuHAOcIcIA12MKEWeA2sAIkWMDcw2Q5wA1YQLEZQD7D2yOClCdCZQ/QeTA7GEAqwN5gYGBRRUowwSRYwTqNQZ5A2wP0B6YvwwMTKpgGWaIHCMwz4QhNghEzgAUB9aADZgNIB8iZwDkH1AcmD8MdUDtA8qB8pnR5QC7C1G7h/3FhgAAAABJRU5ErkJggg==");
+  background-repeat: repeat;
+  opacity: 0.03;
+  mix-blend-mode: screen;
+}
+
+@utility text-massive {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 15vw, 12rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@utility glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@utility animate-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-line 3s ease-in-out forwards;
+}
+
+@keyframes pan-grid {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-100px, -100px); }
+}
+
+@utility animate-pan-grid {
+  animation: pan-grid 20s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@utility animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
