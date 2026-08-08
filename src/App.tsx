@@ -9,11 +9,13 @@ import Act4_ThePresent from './sections/Act4_ThePresent';
 import Act5_Constellation from './sections/Act5_Constellation';
 import Act6_Celebration from './sections/Act6_Celebration';
 import Act7_Epilogue from './sections/Act7_Epilogue';
+import LoginPage from './sections/LoginPage';
 
 import { useDynamicImages } from './hooks/useDynamicImages';
 
 export default function App() {
   const [mounted, setMounted] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { childhood, family, current, allImages } = useDynamicImages();
   const [loading, setLoading] = useState(true);
 
@@ -29,6 +31,10 @@ export default function App() {
   }, [allImages]);
 
   if (!mounted) return null;
+
+  if (!isAuthenticated) {
+    return <LoginPage onLogin={() => setIsAuthenticated(true)} />;
+  }
 
   if (loading) {
     return (
