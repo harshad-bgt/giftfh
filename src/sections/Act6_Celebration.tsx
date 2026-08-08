@@ -90,12 +90,15 @@ export default function Act6_Celebration({ images }: Props) {
         </h1>
 
         <div className="font-serif text-xl md:text-3xl text-[#F5F5F5]/80 italic space-y-4">
-          <p className="paragraph-line opacity-0 translate-y-5">To the architect</p>
-          <p className="paragraph-line opacity-0 translate-y-5">who builds dreams,</p>
-          <p className="paragraph-line opacity-0 translate-y-5">creates memories,</p>
-          <p className="paragraph-line opacity-0 translate-y-5">inspires everyone around her,</p>
-          <p className="paragraph-line opacity-0 translate-y-5">and continues designing</p>
-          <p className="paragraph-line opacity-0 translate-y-5 text-[#C8A96B]">a beautiful future.</p>
+          <p className="paragraph-line opacity-0 translate-y-5">To the architect,</p>
+          <p className="paragraph-line opacity-0 translate-y-5">the dreamer,</p>
+          <p className="paragraph-line opacity-0 translate-y-5">the creator,</p>
+          <p className="paragraph-line opacity-0 translate-y-5">and the person behind</p>
+          <p className="paragraph-line opacity-0 translate-y-5">all these beautiful memories.</p>
+          
+          <p className="paragraph-line opacity-0 translate-y-5 text-[#C8A96B] mt-12 block">
+            "May the next chapter be your most beautiful one yet."
+          </p>
         </div>
       </div>
 
@@ -120,7 +123,7 @@ export default function Act6_Celebration({ images }: Props) {
           className="absolute bottom-12 px-6 py-3 border border-[#C8A96B] text-[#C8A96B] font-mono text-xs tracking-widest uppercase hover:bg-[#C8A96B] hover:text-[#0A0A0A] transition-colors pointer-events-auto"
           style={{ animation: `fade-in 1s ease-in forwards ${(images.length * 1.5) + 1}s`, opacity: 0 }}
         >
-          Experience The Journey Again
+          REPLAY THE EXHIBITION
         </button>
       </div>
 
