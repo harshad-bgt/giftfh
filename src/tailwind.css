@@ -76,3 +76,15 @@ html, body, #root {
 @utility animate-float-slow {
   animation: float-slow 4s ease-in-out infinite;
 }
+
+/* Disable image downloads and interactions globally */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  pointer-events: none;
+}
