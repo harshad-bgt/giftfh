@@ -30,8 +30,9 @@ html, body, #root {
   z-index: 50;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAIAAAACAAICAAAAAgIAAgAAAAIDAJmMBAAAAwklEQVR42mMQYGBgYWBgYGJggIA2IGaE8BmBfCYGCE9ZkYGBVQUowwSRY1RhYNCFYkYgD4jB2IwIeSC2MgMDqwpYnQnIZ4bImSMwG0SuHAOcIcIA12MKEWeA2sAIkWMDcw2Q5wA1YQLEZQD7D2yOClCdCZQ/QeTA7GEAqwN5gYGBRRUowwSRYwTqNQZ5A2wP0B6YvwwMTKpgGWaIHCMwz4QhNghEzgAUB9aADZgNIB8iZwDkH1AcmD8MdUDtA8qB8pnR5QC7C1G7h/3FhgAAAABJRU5ErkJggg==");
   background-repeat: repeat;
-  opacity: 0.03;
-  mix-blend-mode: screen;
+  opacity: 0.04;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 @utility text-massive {
